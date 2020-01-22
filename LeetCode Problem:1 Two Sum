@@ -1,0 +1,35 @@
+> /*Two Sum
+Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+Example:
+
+Given nums = [2, 7, 11, 15], target = 9,
+
+Because nums[0] + nums[1] = 2 + 7 = 9,
+return [0, 1].
+*/
+
+Solution in Scala: 
+
+object Solution {
+    def twoSum(nums: Array[Int], target: Int): Array[Int] = {
+        
+        val r=nums.zipWithIndex.combinations(2).map(x=> if(x(0)._1+x(1)._1==target) (x(0)._2,x(1)._2)).filter(_!=()).toList.flatten{case(a,b)=>List(a,b)}.map(_.toString.toInt).toArray
+        r        
+    }
+}
+
+
+Comments: 
+
+zipWithIndex     => It will create a tupple with Index value and Index Position like (<Index Value>, <Index Position>)
+combinations     => It will help us to create all possible combinations with the desired size. Here I have used 2 
+map              => Iterate the entire loop.
+filter           => filter empty tupple's
+toList           => converts into list
+flatten          => It helps us to un-nest the list of lists
+_.toString.toInt => It convert List(Any) to list(Int) --It occurs only when use filter operations.
+toArray          => Converts the result to Array
+
