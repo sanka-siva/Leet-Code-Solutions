@@ -35,3 +35,18 @@ flatten          => It helps us to un-nest the list of lists
 _.toString.toInt => It convert List(Any) to list(Int) --It occurs only when use filter operations.
 toArray          => Converts the result to Array
 
+
+Solution 2:
+
+object Solution {
+    def twoSum(nums: Array[Int], target: Int): Array[Int] = {        
+        
+        var a=new Array[Int](0)
+        for(i<- 0 to nums.length-1){
+            for(j<-i+1 to nums.length-1){
+                if(nums(j)==target-nums(i))  
+                   a= a:+i :+j
+            }
+        }
+       a
+    }
